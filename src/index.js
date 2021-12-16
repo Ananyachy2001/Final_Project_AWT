@@ -1,12 +1,53 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Home from './Components/Home';
+import Student from './Components/Student';
+import Contact from './Components/Contact';
+import Head from './Components/Head';
+import Foot from './Components/Foot';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import StudentDetails from './Components/StudentDetails';
+import ColorState from './Components/ColorState';
+import EffectHookCheck from './Components/EffectHookCheck';
+import AllPosts from './Components/AllPosts';
+import Userlist from './Components/Userlist';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+<Router>
+      <Head/>
+      <Switch>
+        <Route exact path="/">
+          <Home/>
+        </Route>
+        <Route exact path="/Student">
+          <Student/>
+        </Route>
+        <Route exact path="/contact">
+          <Contact/>
+        </Route>
+        <Route exact path="/student/:id">
+          <StudentDetails/>
+        </Route>
+        <Route exact path="/color">
+          <ColorState/>
+        </Route>
+        <Route exact path="/effect">
+          <EffectHookCheck/>
+        </Route>
+        <Route exact path="/posts">
+          <AllPosts/>
+        </Route>
+
+        <Route exact path="/userlist">
+          <Userlist/>
+        </Route>
+
+      </Switch>
+      <Foot/>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
