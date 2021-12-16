@@ -8,7 +8,7 @@ const Head = () => {
             <Link class="btn btn-success" to="/login">Login</Link>
             <Link class="btn btn-primary" to="/admincreate">Create Admin</Link>
             <Link class="btn btn-primary" to="/userlist">User List</Link>
-            <Link class="btn btn-primary" to="/usercreate">Create User</Link>
+            <Link class="btn btn-primary" to="/createuser">Create User</Link>
             <Link class="btn btn-primary" to="/orderdetailcreate">Create Order Details</Link>
             <Link class="btn btn-primary" to="/orderdetaillist">Order Details list</Link>
             <Link class="btn btn-primary" to="/deliverylist">Delivery List </Link>
@@ -16,6 +16,7 @@ const Head = () => {
             <Link class="btn btn-primary" to="/productlist">Product List</Link>
             <Link class="btn btn-primary" to="/ordercreate">Order Now</Link>
             <Link class="btn btn-primary" to="/orderlist">See Order</Link>
+            <Link class="btn btn-primary" to="/login">Login</Link>
 
             
         

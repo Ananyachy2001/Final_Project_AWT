@@ -12,6 +12,7 @@ const Post = (props)=>{
             <div style={PostStyle}>
                 <span>id: {props.id}<b/></span>
                 <span>u_name: {props.U_name}<b/></span>
+                <span>u_pass: {props.U_password}<b/></span>
                 <span>u_phone: {props.U_phone}<b/></span>
                 <span>u_address: {props.U_address}<b/></span>
                 <span>u_username: {props.U_username}<b/></span>

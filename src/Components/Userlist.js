@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import UserPost from './UserPost';
 
-const AllPosts = ()=>{
+const Userlist = ()=>{
     const [posts, setPosts] = useState([]);
 
     useEffect(()=>{
@@ -42,4 +42,4 @@ const AllPosts = ()=>{
     )
 
 }
-export default AllPosts;
+export default Userlist;

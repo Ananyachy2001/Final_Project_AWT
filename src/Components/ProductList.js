@@ -2,17 +2,17 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import ProductPost from './ProductPost';
 
-const AllPosts = ()=>{
-    const [posts, setPosts] = useState([]);
+const ProductList = ()=>{
+    const[posts, setProducts] = useState([]);
 
     useEffect(()=>{
-        axios.get("http://127.0.0.1:8000/api/product/list")
+        axios.get("product/list")
         .then(resp=>{
-            console.log(resp.data);
-            setPosts(resp.data);
-        }).catch(err=>{
-            console.log(err);
-        });
+        console.log(resp.data);
+        setProducts(resp.data);
+         }).catch(err=>{
+        console.log(err);
+    });
     },[]);
 
     return(
@@ -31,7 +31,7 @@ const AllPosts = ()=>{
             </table> */}
             {
                 posts.map(post=>(
-                    <UserPost id={post.id}  U_name={post.U_Name}  U_phone={post.U_phone} U_address={post.U_address} U_username={post.U_username} U_email={post.U_email} U_password={post.U_password} Usertype={post.Usertype} U_profileimg={post.U_profileimg}   key={post.id}></UserPost>
+                    <ProductPost id={post.id} P_id={post.P_id}  P_name={post.P_name}  P_price={post.P_price} P_categories={post.P_categories} P_quantity={post.P_quantity} P_details={post.P_details} P_img1={post.P_img1} P_img2={post.P_img2} P_img3={post.P_img3}   key={post.id}></ProductPost>
 
 
                 ))
@@ -42,4 +42,4 @@ const AllPosts = ()=>{
     )
 
 }
-export default AllPosts;
+export default ProductList;

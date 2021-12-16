@@ -10,14 +10,15 @@ const Post = (props)=>{
 
     return (
             <div style={PostStyle}>
-                <span>id: {props.id}<b/></span>
-                <span>u_name: {props.U_name}<b/></span>
-                <span>u_phone: {props.U_phone}<b/></span>
-                <span>u_address: {props.U_address}<b/></span>
-                <span>u_username: {props.U_username}<b/></span>
-                <span>u_email: {props.U_email}<b/></span>
-                <span>usertype: {props.Usertype}<b/></span>
-                <span>u_profileimg: {props.U_profileimg}<b/></span>
+                <span>p id: {props.P_id}<b/></span>
+                <span>P name: {props.P_name}<b/></span>
+                <span>Picture price: {props.P_price}<b/></span>
+                <span>Picture categories: {props.P_categories}<b/></span>
+                <span>Picture quantity: {props.P_quantity}<b/></span>
+                <span>Picture details: {props.P_details}<b/></span>
+                <span>Picture 1: {props.P_img1}<b/></span>
+                <span>Picture 2: {props.P_img2}<b/></span>
+                <span>Picture 3: {props.P_img3}<b/></span>
                 <br></br>
             </div>
                     

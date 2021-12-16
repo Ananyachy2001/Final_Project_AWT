@@ -3,16 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Home from './Components/Home';
-import Student from './Components/Student';
-import Contact from './Components/Contact';
 import Head from './Components/Head';
 import Foot from './Components/Foot';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import StudentDetails from './Components/StudentDetails';
-import ColorState from './Components/ColorState';
-import EffectHookCheck from './Components/EffectHookCheck';
-import AllPosts from './Components/AllPosts';
 import Userlist from './Components/Userlist';
+import ProductList from './Components/ProductList';
+import OrderDetailList from './Components/OrderDetailList';
+import OrderList from './Components/OrderList';
+import Createuser from './Components/Createuser';
+import Login from './Components/Login';
+import axios from "axios";
+
+var token = null;
+if(localStorage.getItem('user')){
+  var obj = JSON.parse(localStorage.getItem('user'));
+  token = obj.access_token;
+}
+axios.defaults.baseURL="http://127.0.0.1:8000/api/";
+axios.defaults.headers.common["Authorization"] = token;
 
 ReactDOM.render(
   <React.StrictMode>
@@ -22,29 +30,24 @@ ReactDOM.render(
         <Route exact path="/">
           <Home/>
         </Route>
-        <Route exact path="/Student">
-          <Student/>
-        </Route>
-        <Route exact path="/contact">
-          <Contact/>
-        </Route>
-        <Route exact path="/student/:id">
-          <StudentDetails/>
-        </Route>
-        <Route exact path="/color">
-          <ColorState/>
-        </Route>
-        <Route exact path="/effect">
-          <EffectHookCheck/>
-        </Route>
-        <Route exact path="/posts">
-          <AllPosts/>
-        </Route>
-
         <Route exact path="/userlist">
           <Userlist/>
         </Route>
-
+        <Route exact path="/productlist">
+          <ProductList/>
+        </Route>
+        <Route exact path="/orderlist">
+          <OrderList/>
+        </Route>
+        <Route exact path="/orderdetaillist">
+          <OrderDetailList/>
+        </Route>
+        <Route exact path="/login">
+          <Login/>
+        </Route>
+        <Route exact path="/createuser">
+          <Createuser/>
+        </Route>
       </Switch>
       <Foot/>
     </Router>
