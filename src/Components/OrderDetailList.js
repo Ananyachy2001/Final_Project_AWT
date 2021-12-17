@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import OrderDetailPost from './OrderDetailPost';
+import { Link } from "react-router-dom";
 
 const AllPosts = ()=>{
     const [posts, setPosts] = useState([]);
@@ -42,6 +43,7 @@ const AllPosts = ()=>{
                     <td >{post.P_tprice}</td><b/>
                     <td >{post.P_size}</td><b/>
                     <td >{post.U_username}</td><b/>
+                    <td><Link to={`editorderdetails/${post.id}`}>Edit Order Details</Link></td>
                 </tr>
                     ))}
             </table> 

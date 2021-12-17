@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
+import { useParams } from 'react-router-dom';
 
-
-function CreateOrderDetails() {
+function Editorderdetails() {
+  const {id} = useParams();
   const [inputs, setInputs] = useState({
     order_id:"",p_name:"",p_price:"",p_categories:"",p_quantity:"",p_tprice:"",p_size:"",u_username:""
   });
@@ -13,10 +14,24 @@ function CreateOrderDetails() {
     setInputs(values => ({...values, [name]: value}))
   }
 
+  useEffect(()=>{
+
+    axios.get(`editorderdetails/${id}`)
+        .then(resp=>{
+        console.log(resp.data);      
+        setInputs(resp.data);
+    }).catch(err=>{
+
+        console.log(err);
+
+        });
+
+    },[]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(inputs);
-    axios.post("/orderdetail/create",inputs)
+    axios.post("/updateorderdetails/{id}",inputs)
     .then(resp=>{
         var infos = resp.data;
         console.log(infos);
@@ -71,7 +86,7 @@ function CreateOrderDetails() {
       </div>
 
 
-      <input type="submit" placeholder="Add Order" />
+      <input type="submit" placeholder="Edit Order Detail" />
        
     </form>
   )
@@ -82,4 +97,4 @@ function CreateOrderDetails() {
 
 
 
-export default CreateOrderDetails;
+export default Editorderdetails;

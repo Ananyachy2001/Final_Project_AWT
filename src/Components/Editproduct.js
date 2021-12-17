@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
+import { useParams } from 'react-router-dom';
 
-
-function Createproduct() {
+function Editproduct() {
+  const {id} = useParams();
   const [inputs, setInputs] = useState({
     P_id:"",P_name:"",P_price:"",P_categories:"",P_quantity:"",P_details:"",P_img1:"",P_img2:"",P_img3:""
   });
@@ -13,10 +14,24 @@ function Createproduct() {
     setInputs(values => ({...values, [name]: value}))
   }
 
+  useEffect(()=>{
+
+    axios.get(`editproduct/${id}`)
+        .then(resp=>{
+        console.log(resp.data);      
+        setInputs(resp.data);
+    }).catch(err=>{
+
+        console.log(err);
+
+        });
+
+    },[]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(inputs);
-    axios.post("product/create",inputs)
+    axios.post("/updateproduct/{id}",inputs)
     .then(resp=>{
         var infos = resp.data;
         console.log(infos);
@@ -25,6 +40,7 @@ function Createproduct() {
         console.log(err);
     });
   }
+
 
   return (
     <form onSubmit={handleSubmit}>
@@ -67,7 +83,7 @@ function Createproduct() {
       <input type="text" name="P_img3" value={inputs.P_img3} placeholder="P_img3" onChange={handleChange} />
       </div>
 
-      <input type="submit" placeholder="Add product" />
+      <input type="submit" placeholder="Edit product" />
        
     </form>
   )
@@ -78,4 +94,4 @@ function Createproduct() {
 
 
 
-export default Createproduct;
+export default Editproduct;

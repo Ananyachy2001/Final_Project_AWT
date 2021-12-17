@@ -12,6 +12,15 @@ import OrderDetailList from './Components/OrderDetailList';
 import OrderList from './Components/OrderList';
 import DeliveryList from './Components/DeliveryList';
 import Createuser from './Components/Createuser';
+import Createproduct from './Components/Createproduct';
+import Createdelivery from './Components/Createdelivery';
+import Edituser from './Components/Edituser';
+import Editproduct from './Components/Editproduct';
+import Editorderdetails from './Components/Editorderdetails';
+import Editorder from './Components/Editorder';
+import Editdelivery from './Components/Editdelivery';
+import CreateOrder from './Components/CreateOrder';
+import CreateOrderDetails from './Components/CreateOrderDetails';
 import Login from './Components/Login';
 import axios from "axios";
 
@@ -54,6 +63,31 @@ ReactDOM.render(
         </Route>
         <Route exact path="/createproduct">
           <Createproduct/>
+        </Route>
+        <Route exact path="/createorder">
+          <CreateOrder/>
+        </Route>
+        <Route exact path="/createorderdetails">
+          <CreateOrderDetails/>
+        </Route>
+        <Route exact path="/createdelivery">
+          <Createdelivery/>
+        </Route>
+        <Route exact path="/edituser/:id">
+          <Edituser/>
+        </Route>
+
+        <Route exact path="/editproduct/:id">
+          <Editproduct/>
+        </Route>
+        <Route exact path="/editorder/:id">
+          <Editorder/>
+        </Route>
+        <Route exact path="/editorderdetails/:id">
+          <Editorderdetails/>
+        </Route>
+        <Route exact path="/editdelivery/:id">
+          <Editdelivery/>
         </Route>
       </Switch>
       <Foot/>

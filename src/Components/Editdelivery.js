@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
+import { useParams } from 'react-router-dom';
 
-
-function Createdelivery() {
+function Editdelivery() {
+  const {id} = useParams();
   const [inputs, setInputs] = useState({
-    ord_id:"",pay_price:"",D_username:"",D_Status:"",D_time:""
+    Ord_id:"",Pay_price:"",D_username:"",D_Status:"",D_time:""
   });
 
   const handleChange = (event) => {
@@ -13,10 +14,24 @@ function Createdelivery() {
     setInputs(values => ({...values, [name]: value}))
   }
 
+  useEffect(()=>{
+
+    axios.get(`editdelivery/${id}`)
+        .then(resp=>{
+        console.log(resp.data);      
+        setInputs(resp.data);
+    }).catch(err=>{
+
+        console.log(err);
+
+        });
+
+    },[]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(inputs);
-    axios.post("delivery/create",inputs)
+    axios.post("/updatedelivery/{id}",inputs)
     .then(resp=>{
         var infos = resp.data;
         console.log(infos);
@@ -29,19 +44,13 @@ function Createdelivery() {
   return (
     <form onSubmit={handleSubmit}>
 
+
       <div>
-      <span>Order Id: </span> <b/>
-          <select name="ord_id" onChange={handleChange} value={inputs.ord_id}>
-          <option value="" disable="true" selected="true" >Select</option>
-          <option value="2">2</option>
-          <option value="5">5</option>
-          <option value="7">7</option>
-               
-</select>
+      <input type="text" name="Ord_id" value={inputs.Ord_id} placeholder="Ord_id" onChange={handleChange} />
 
       </div>
       <div>
-      <input type="text" name="pay_price" value={inputs.pay_price} placeholder="pay_price" onChange={handleChange} />
+      <input type="text" name="Pay_price" value={inputs.Pay_price} placeholder="Pay_price" onChange={handleChange} />
 
       </div>
       <div>
@@ -69,4 +78,4 @@ function Createdelivery() {
 
 
 
-export default Createdelivery;
+export default Editdelivery;
