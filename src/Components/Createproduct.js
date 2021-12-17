@@ -2,9 +2,9 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 
 
-function Createuser() {
+function Createproduct() {
   const [inputs, setInputs] = useState({
-    Name:"",Phone:"",Address:"",Username:"",Email:"",Password:"",Usertype:"admin",Profileimg:"default.jpg"
+    P_id:"",P_name:"",P_price:"",P_categories:"",P_quantity:"",P_details:"",Usertype:"admin",Profileimg:"default.jpg"
   });
 
   const handleChange = (event) => {
@@ -78,4 +78,4 @@ function Createuser() {
 
 
 
-export default Createuser;
+export default Createproduct;

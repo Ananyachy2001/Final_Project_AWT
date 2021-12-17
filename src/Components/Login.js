@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+
 import axios from "axios";
 
 
@@ -17,6 +18,9 @@ const Login = ()=>{
             var user = {userId: token.userid, access_token:token.token};
             localStorage.setItem('user',JSON.stringify(user));
             // console.log(localStorage.getItem('user'));
+            window.location.reload(false);
+            
+
         }).catch(err=>{
             console.log(err);
         });

@@ -10,6 +10,7 @@ import Userlist from './Components/Userlist';
 import ProductList from './Components/ProductList';
 import OrderDetailList from './Components/OrderDetailList';
 import OrderList from './Components/OrderList';
+import DeliveryList from './Components/DeliveryList';
 import Createuser from './Components/Createuser';
 import Login from './Components/Login';
 import axios from "axios";
@@ -39,6 +40,9 @@ ReactDOM.render(
         <Route exact path="/orderlist">
           <OrderList/>
         </Route>
+        <Route exact path="/deliverylist">
+          <DeliveryList/>
+        </Route>
         <Route exact path="/orderdetaillist">
           <OrderDetailList/>
         </Route>
@@ -47,6 +51,9 @@ ReactDOM.render(
         </Route>
         <Route exact path="/createuser">
           <Createuser/>
+        </Route>
+        <Route exact path="/createproduct">
+          <Createproduct/>
         </Route>
       </Switch>
       <Foot/>
